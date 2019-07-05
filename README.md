@@ -1,27 +1,46 @@
-Welcome to Glitch
-=================
+# Unit-Server
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.0r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+## 概要
 
-Find out more [about Glitch](https://glitch.com/about).
+CLIゲーム「Unit」のデータベースサーバー向けプロジェクトです。
 
+## APIの使用法
 
-Your Project
-------------
+C言語から扱いやすいようにURIは短く、メソッドはGETのみとなっています。
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+###　データの登録
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+```http
+host/push?name=<name:string>&score=<score:int>
+```
 
+### データ取得
 
-Made by [Glitch](https://glitch.com/)
--------------------
+上位10件のデータを返えします。
 
-\ ゜o゜)ノ
+```http
+host/load
+```
+
+#### response
+
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+> \<name:string>:\<score:int>  
+
+### データベース初期化
+
+tokenは1分毎に変化します。
+
+```http
+host/clear?token=<token:string>
+```
