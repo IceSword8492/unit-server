@@ -9,7 +9,7 @@ const getToken = _ => {
   const d = new Date;
   return (Math.floor(((d.getMonth() + d.getDate() + d.getMinutes()) / d.getFullYear()) * 10000) + "").padStart(4, "0");
 };
-app.use(express.static('public'));
+// app.use(express.static('public'));
 const listener = app.listen(process.env.PORT || 8080, async _ => {
   database = await sqlite.open("database.db");
   init(database);
