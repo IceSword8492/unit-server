@@ -12,4 +12,15 @@ app.get('/push', function(req, res) {
   name: ${req.query.name}
   score: ${req.query.score}`);
 });
-app.get("/")
+app.get("/load", (req, res) => {
+  res.send(`name1:40000
+name2:30000
+name3:20000
+name4:10000
+name5:7000
+name6:5000
+name7:4000
+name8:3000
+name9:2000
+name10:10`);
+});
