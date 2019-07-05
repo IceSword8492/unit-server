@@ -10,7 +10,7 @@ CLIゲーム「Unit」のデータベースサーバー向けプロジェクト�
 
 C言語から扱いやすいようにURIは短く、メソッドはGETのみとなっています。
 
-###　データの登録
+### データの登録
 
 ```http
 host/push?name=<name:string>&score=<score:int>
