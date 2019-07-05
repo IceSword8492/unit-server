@@ -12,3 +12,4 @@ app.get('/push', function(req, res) {
   name: ${req.query.name}
   score: ${req.query.score}`);
 });
+app.get("/")
