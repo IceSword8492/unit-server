@@ -18,7 +18,7 @@ host/push?name=<name:string>&score=<score:int>
 
 ### データ取得
 
-上位10件のデータを返えします。
+上位10件のデータを返します。
 
 ```http
 host/load
