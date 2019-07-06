@@ -30,7 +30,7 @@ app.get('/push', async (req, res) => {
   }
 });
 app.get("/load", async (req, res) => {
-  data = await database.all("select * from scores order by score desc limit 10");
+  let data = await database.all("select * from scores order by score desc limit 10");
   let str = data.map(entry => entry.name + ":" + entry.score).join("\n");
   res.send(str);
 });
