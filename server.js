@@ -47,3 +47,15 @@ app.get("/clear", async (req, res) => {
     res.status(400).send("Bad Request");
   }
 });
+app.get("/test", async (req, res) => {
+  res.send(`playerA:18000
+playerB:16000
+playerC:15000
+playerD:14000
+playerE:13000
+playerF:12000
+playerG:11000
+playerH:10000
+playerI:9000
+playerJ:8000`);
+});
