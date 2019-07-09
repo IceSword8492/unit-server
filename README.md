@@ -1,6 +1,6 @@
 # Unit-Server
 
-![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.0r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
+![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.1r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
 
 ## 概要
 
@@ -43,4 +43,12 @@ tokenは1分毎に変化します。
 
 ```http
 host/clear?token=<token:string>
+```
+
+### テスト
+
+ダミーデータを返します。
+
+```http
+host/test
 ```
