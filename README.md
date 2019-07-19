@@ -1,6 +1,6 @@
 # Unit-Server
 
-![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.1r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
+![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.2r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
 
 ## 概要
 
@@ -51,4 +51,26 @@ host/clear?token=<token:string>
 
 ```http
 host/test
+```
+
+### スクリプトとして取得
+
+```http
+host/script
+```
+
+Response
+```js
+var data = [
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>},
+    {"name": <name:string>, "score": <score:int>}
+];
 ```

@@ -59,3 +59,8 @@ playerH:10000
 playerI:9000
 playerJ:8000`);
 });
+app.get("/script", async (req, res) => {
+  let data = await database.all("select * from scores order by score desc limit 10");
+  let str = data.map(entry => "{\"name\": \"" + entry.name + "\", \"score\": " + entry.score + "}").join(",");
+  res.send(`var data = [${str}];`);
+});
