@@ -67,7 +67,7 @@ app.get("/script", async (req, res) => {
 app.get("/delete", async (req, res) => {
   if (req.query.names && req.query.names.length)
   {
-    database.run(`delete from scores where ${req.query.names.split(/[ ]*,/g).map(entry => `name = ${entry}`).join(" or ")}`);
+    database.run(`delete from scores where ${req.query.names.split(/[ ]*,/g).map(entry => `name = "${entry}"`).join(" or ")}`);
     res.send("success");
     return;
   }

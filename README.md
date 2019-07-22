@@ -72,7 +72,7 @@ host/test
 host/script
 ```
 
-Response
+#### Response
 ```js
 var data = [
     {"name": <name:string>, "score": <score:int>},
