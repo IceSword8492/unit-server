@@ -65,13 +65,17 @@ app.get("/script", async (req, res) => {
   res.send(`var data = [${str}];`);
 });
 app.get("/delete", async (req, res) => {
-  if (req.queru.names && req.query.names.length)
+  if (req.query.names && req.query.names.length)
   {
-    console.log(req.query.names.map(entry => `name = ${entry}`).join(" or "))
-    // database.run(`delete from scores where ${req.query.names.map(entry => `name = ${entry}`).join(" or ")}`);
+    database.run(`delete from scores where ${req.query.names.split(/[ ]*,/g).map(entry => `name = ${entry}`).join(" or ")}`);
+    res.send("success");
+    return;
   }
   else
   {
     database.run("delete from scores");
+    res.send("success");
+    return;
   }
+  res.send("failed");
 });
