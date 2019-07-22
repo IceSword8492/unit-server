@@ -16,7 +16,7 @@ const listener = app.listen(process.env.PORT || 8080, async _ => {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 app.get("/", (req, res) => {
-  res.send("UNIT-SERVER");
+  res.sendFile(__dirname + "/index.html");
 });
 app.get('/push', async (req, res) => {
   if (req.query.name && req.query.score)

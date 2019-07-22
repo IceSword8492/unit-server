@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <title>unit-server</title>
+    </head>
+    <body>
+        <button id="show">10件表示</button> <br />
+        name: <input type="text" id="name" /> scode: <input type="text" id="score" /><button id="push">登録</button> <br />
+        <button id="test">APIアクセステスト</button> <br />
+        <button id="script">スクリプト</button> <br />
+        <button id="delete">削除</button>
+
+        <script>
+        document.getElementById("show").onclick = _ => location.href = "/load";
+        document.getElementById("push").onclick = _ => location.href = `/push?name=${document.getElementById("name").value}&score=${document.getElementById("score").value}`;
+        document.getElementById("test").onclick = _ => location.href = "/test";
+        document.getElementById("script").onclick = _ => location.href = "/script";
+        document.getElementById("delete").onclick = _ => location.href = "/delete";
+        </script>
+    </body>
+</html>
