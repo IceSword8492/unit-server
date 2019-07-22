@@ -1,6 +1,6 @@
 # Unit-Server
 
-![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.2r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
+![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.3r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
 
 ## 概要
 
@@ -37,6 +37,7 @@ host/load
 > \<name:string>:\<score:int>  
 > \<name:string>:\<score:int>  
 
+<s>
 ### データベース初期化
 
 tokenは1分毎に変化します。
@@ -44,6 +45,18 @@ tokenは1分毎に変化します。
 ```http
 host/clear?token=<token:string>
 ```
+</s>
+
+
+### 削除
+
+データを削除します。
+namesを指定しない場合全削除を実行します。
+
+```http
+host/delete?names=[<name:string>[,<name:string>]...]
+```
+
 
 ### テスト
 

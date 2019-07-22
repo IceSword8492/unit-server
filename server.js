@@ -5,10 +5,10 @@ let database;
 const init = async _ => {
   _.run("create table if not exists scores (id integer primary key autoincrement, name text, score integer)");
 };
-const getToken = _ => {
-  const d = new Date;
-  return (Math.floor(((d.getMonth() + d.getDate() + d.getMinutes()) / d.getFullYear()) * 10000) + "").padStart(4, "0");
-};
+// const getToken = _ => {
+//   const d = new Date;
+//   return (Math.floor(((d.getMonth() + d.getDate() + d.getMinutes()) / d.getFullYear()) * 10000) + "").padStart(4, "0");
+// };
 // app.use(express.static('public'));
 const listener = app.listen(process.env.PORT || 8080, async _ => {
   database = await sqlite.open("database.db");
@@ -34,19 +34,19 @@ app.get("/load", async (req, res) => {
   let str = data.map(entry => entry.name + ":" + entry.score).join("\n");
   res.send(str);
 });
-app.get("/clear", async (req, res) => {
-  if (req.query.token == getToken())
-  {
-    await database.run("drop table scores");
-    await init(database);
-    console.warn("database deleted by client")
-    res.status(200).send("OK");
-  }
-  else
-  {
-    res.status(400).send("Bad Request");
-  }
-});
+// app.get("/clear", async (req, res) => {
+//   if (req.query.token == getToken())
+//   {
+//     await database.run("drop table scores");
+//     await init(database);
+//     console.warn("database deleted by client")
+//     res.status(200).send("OK");
+//   }
+//   else
+//   {
+//     res.status(400).send("Bad Request");
+//   }
+// });
 app.get("/test", async (req, res) => {
   res.send(`playerA:18000
 playerB:16000
@@ -63,4 +63,15 @@ app.get("/script", async (req, res) => {
   let data = await database.all("select * from scores order by score desc limit 10");
   let str = data.map(entry => "{\"name\": \"" + entry.name + "\", \"score\": " + entry.score + "}").join(",");
   res.send(`var data = [${str}];`);
+});
+app.get("/delete", async (req, res) => {
+  if (req.queru.names && req.query.names.length)
+  {
+    console.log(req.query.names.map(entry => `name = ${entry}`).join(" or "))
+    // database.run(`delete from scores where ${req.query.names.map(entry => `name = ${entry}`).join(" or ")}`);
+  }
+  else
+  {
+    database.run("delete from scores");
+  }
 });
