@@ -71,6 +71,12 @@ app.get("/delete", async (req, res) => {
     res.send("success");
     return;
   }
+  else if (req.query.name && req.query.names.trim().length)
+  {
+    database.run("delete from scores where name = ?", req.query.name);
+    res.send("success");
+    return;
+  }
   else
   {
     database.run("delete from scores");
