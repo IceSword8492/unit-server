@@ -1,6 +1,6 @@
 # Unit-Server
 
-![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.3r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
+![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.4r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
 
 ## 概要
 
@@ -51,10 +51,14 @@ host/clear?token=<token:string>
 ### 削除
 
 データを削除します。
-namesを指定しない場合全削除を実行します。
+`names`または`name`を指定しない場合全削除を実行します。
 
 ```http
-host/delete?names=[<name:string>[,<name:string>]...]
+host/delete
+
+host/delete?names=<name:string>[,<name:string>]...
+
+host/delete?name=<name:string>
 ```
 
 
