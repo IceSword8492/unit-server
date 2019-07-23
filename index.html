@@ -12,9 +12,9 @@
         <button id="delete">削除</button>
 
         <script>
-        document.getElementById("show").onclick = _ => location.href = "/load";
-        document.getElementById("push").onclick = _ => location.href = `/push?name=${document.getElementById("name").value}&score=${document.getElementById("score").value}`;
         document.getElementById("test").onclick = _ => location.href = "/test";
+        document.getElementById("push").onclick = _ => location.href = `/push?name=${document.getElementById("name").value}&score=${document.getElementById("score").value}`;
+        document.getElementById("show").onclick = _ => location.href = "/load";
         document.getElementById("script").onclick = _ => location.href = "/script";
         document.getElementById("delete").onclick = _ => location.href = "/delete";
         </script>
