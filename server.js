@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("UNIT-SERVER");
 });
 app.get('/push', async (req, res) => {
-  if (req.query.name && req.query.score)
+  if (req.query.name && req.query.score && !isNaN(parseInt(res.query.score)) && parseInt(req.query.score) > 0)
   {
     database.run("insert into scores(name, score) values(?, ?)", req.query.name, req.query.score);
     res.status(200).send("OK");
@@ -83,5 +83,4 @@ app.get("/delete", async (req, res) => {
     res.send("success");
     return;
   }
-  res.send("failed");
 });
