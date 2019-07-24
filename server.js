@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 app.get('/push', async (req, res) => {
-  if (req.query.name && req.query.score && !isNaN(parseInt(res.query.score)) && parseInt(req.query.score) > 0)
+  if (req.query.name && req.query.score && !isNaN(parseInt(req.query.score)) && parseInt(req.query.score) > 0)
   {
     database.run("insert into scores(name, score) values(?, ?)", req.query.name, req.query.score);
     res.status(200).send("OK");

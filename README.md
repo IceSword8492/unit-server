@@ -1,6 +1,6 @@
 # Unit-Server
 
-![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.4r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
+![BUILDSTATUS](https://img.shields.io/badge/build-passing-success.svg) ![VERSION](https://img.shields.io/badge/version-1.0.5r-blightgreen.svg) ![DOCUMENT](https://img.shields.io/badge/documents-available-blue.svg)
 
 ## 概要
 
@@ -11,6 +11,8 @@ CLIゲーム「Unit」のデータベースサーバー向けプロジェクト�
 C言語から扱いやすいようにURIは短く、メソッドはGETのみとなっています。
 
 ### データの登録
+
+scoreが1以上の場合のみ成功します。
 
 ```http
 host/push?name=<name:string>&score=<score:int>
